@@ -1,110 +1,101 @@
 import Image from "next/image";
 import prisma from "@/lib/prisma";
+import CustomButton from "@/components/CustomButton";
+import CheckSubscription from "@/public/icons/CheckSubscription";
+import Calendar from "@/public/icons/Calendar";
+import { expertiseList } from "@/data/expertiseList";
+import ExpertiseCard from "@/components/ExpertiseCard";
 
 export default async function Home() {
-  const member = await prisma.teamMember.findMany();
+  // const member = await prisma.teamMember.findMany();
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <main className="  ">
+      <section className="max-w-[1200px] mx-auto min-h-[100vh] relative   ">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/images/pathhero_path.png"
+          alt="hero_bg"
+          fill
+          objectFit="contain"
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-linear-90 from-enovate-light-blue via-enovate-light-purple to-enovate-light-green text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <div className=" absolute 2xl:translate-y[-70%] translate-y-[-50%] top-[50%]">
+          <h1
+            className={` text-[5rem] font-sans font-[700] text-center text-title-gray leading-tight -tracking-wide `}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            We create stunning and
+            <span
+              className={`bg-linear-to-tr from-enovate-blue via-enovate-purple to-enovate-green bg-clip-text text-transparent`}
+            >
+              {" "}
+              <br /> timeless experiences{" "}
+            </span>
+          </h1>
+          <h2
+            className={` font-body-inter text-lg text-subtitle-gray w-[75%] text-center mx-auto mt-8 font-normal  `}
+          >
+            Enovate is a <b className="font-bold"> Design-As-A-Service </b>
+            agency that help startups and business owners with their design
+            through a subscription-based plan that fits their budget. We also
+            work on their web and mobile applications.
+          </h2>
+          <div className=" mx-auto mt-12 w-fit flex items-center gap-x-8 ">
+            <CustomButton
+              text="Check out our subscription"
+              variant="solid"
+              Icon={<CheckSubscription />}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <CustomButton
+              text="Schedule a consultation"
+              variant="outline"
+              Icon={<Calendar />}
+            />
+          </div>
         </div>
-        <div>
-          {member.map((mem) => {
-            return <p key={mem.id}>{mem.name}</p>;
+      </section>
+      <section className={`max-w-[1200px] mx-auto my-12 `}>
+        <div className="text-center">
+          <h3
+            className={` text-title-gray font-sans text-5xl font-[700] tracking-tight `}
+          >
+            Our areas of{" "}
+            <span
+              className={`bg-linear-to-br from-enovate-blue via-enovate-purple to-enovate-green bg-clip-text text-transparent`}
+            >
+              expertise
+            </span>
+          </h3>
+          <p
+            className={` mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray `}
+          >
+            We provide a full suite of creative design including illustrations,
+            web design and app development services, with special care for
+            mobile.
+          </p>
+        </div>
+        <div className=" grid grid-cols-[1fr_1fr] gap-8 w-fit mx-auto mt-12  ">
+          {expertiseList.map((data) => {
+            return (
+              <ExpertiseCard
+                key={data.id}
+                id={data.id}
+                title={data.title}
+                detail={data.descprition}
+                icon={data.icon}
+                gif={data.gif}
+              />
+            );
           })}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+      <section className="w-full h-fit bg-amber-200 ">
+        <Image
+          src="https://enovatedata.s3.eu-north-1.amazonaws.com/swiggly.png"
+          alt="enovate-path"
+          width={1200}
+          height={600}
+          // fill
+          // objectFit="cover"
+        />
+      </section>
+    </main>
   );
 }

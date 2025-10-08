@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  /* --foreground: #171717; */
+  --background: #fefffb;
+  /* --merriweatherSans: 'Merriweather Sans' */
 }
 
-@theme {
+@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-merriweather-sans);
   --font-mono: var(--font-geist-mono);
+  --font-body-inter: var(--font-inter);
 
   /* Enovate color  */
   --color-enovate-light-blue: #92ebff;
@@ -25,6 +26,10 @@
   --color-enovate-dark-blue: #6ddbf3;
   --color-enovate-dark-purple: #7683ee;
   --color-enovate-dark-green: #54ea87;
+
+  /* Box Shadow */
+  --shadow-solid-purple: 0px 0px 2px 4px #8b98ff;
+  --shadow-outline-blue: 0px 0px 2px 4px #92ebff;
 }
 
 /* @media (prefers-color-scheme: dark) {
