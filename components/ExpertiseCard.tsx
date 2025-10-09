@@ -28,7 +28,7 @@ function ExpertiseCard({ id, icon, title, detail, gif }: ExpertiseProps) {
           rotateY: isHovered ? 180 : 0,
           transition: { type: "tween", duration: 0.8 },
         }}
-        className="w-full h-full "
+        className="w-full h-full relative"
       >
         <motion.div
           className=" w-full h-full bg-light-background rounded-2xl flex flex-col items-center p-6 "
@@ -52,14 +52,13 @@ function ExpertiseCard({ id, icon, title, detail, gif }: ExpertiseProps) {
             opacity: isHovered ? 1 : 0,
             transition: { type: "tween", duration: 0.8 },
           }}
-          className={`w-full h-fit`}
+          className={`w-full h-fit `}
         >
           <Image
             src={gif}
             alt={title}
-            className={`rounded-2xl`}
+            className={`rounded-2xl object-cover `}
             fill
-            objectFit="cover"
             unoptimized={true}
           />
         </motion.div>

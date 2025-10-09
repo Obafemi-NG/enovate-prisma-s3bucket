@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import prisma from "@/lib/prisma";
 import CustomButton from "@/components/CustomButton";
@@ -5,9 +7,15 @@ import CheckSubscription from "@/public/icons/CheckSubscription";
 import Calendar from "@/public/icons/Calendar";
 import { expertiseList } from "@/data/expertiseList";
 import ExpertiseCard from "@/components/ExpertiseCard";
+// import { GET } from "./api/images/presigned/route";
+// import { useEffect } from "react";
+import Folder from "@/components/Folder";
 
-export default async function Home() {
+export default function Home() {
   // const member = await prisma.teamMember.findMany();
+  // useEffect(() => {
+  //   GET("swiggly.png");
+  // }, []);
   return (
     <main className="  ">
       <section className="max-w-[1200px] mx-auto min-h-[100vh] relative   ">
@@ -15,7 +23,7 @@ export default async function Home() {
           src="/images/pathhero_path.png"
           alt="hero_bg"
           fill
-          objectFit="contain"
+          className=" object-contain "
         />
         <div className=" absolute 2xl:translate-y[-70%] translate-y-[-50%] top-[50%]">
           <h1
@@ -86,15 +94,24 @@ export default async function Home() {
           })}
         </div>
       </section>
-      <section className="w-full h-fit bg-amber-200 ">
+      <section className="w-full h-[20rem] relative">
         <Image
-          src="https://enovatedata.s3.eu-north-1.amazonaws.com/swiggly.png"
+          src={`${
+            process.env.AWS_S3_BUCKET_BASE_URL ||
+            process.env.NEXT_PUBLIC_AWS_S3_BUCKET_BASE_URL
+          }swiggly.png`}
           alt="enovate-path"
-          width={1200}
-          height={600}
-          // fill
-          // objectFit="cover"
+          fill
+          className=" object-contain "
         />
+      </section>
+      <section className="max-w-[1200px] mx-auto my-8  ">
+        <div className=" mx-auto grid w-fit gap-x-24 gap-y-28 grid-cols-[1fr_1fr]">
+          <Folder />
+          <Folder />
+          <Folder />
+          <Folder />
+        </div>
       </section>
     </main>
   );
