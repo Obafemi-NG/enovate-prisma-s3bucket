@@ -47,7 +47,9 @@ const Header = () => {
             onMouseLeave={() => setNavHovered(false)}
             className=" flex items-center gap-x-2 hover:cursor-pointer "
           >
-            <p>Explore</p>
+            <p className="font-body-inter font-medium hover:text-shadow-2xs">
+              Explore
+            </p>
             <div
               className={`p-1 ${
                 navHovered ? "bg-text-dark-gray" : "bg-none"

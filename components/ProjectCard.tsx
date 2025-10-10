@@ -14,7 +14,7 @@ const ProjectCard = ({ folderHovered }: CardProps) => {
       }}
       animate={{
         y: folderHovered ? -100 : 0,
-        // rotate: folderHovered ? 3 : 0,
+        rotate: folderHovered ? 3 : 0,
         transition: {
           duration: 0.8,
           type: "spring",
