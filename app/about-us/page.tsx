@@ -11,42 +11,38 @@ const AboutUs = async () => {
   const team = await prisma.teamMember.findMany();
   return (
     <main className=" ">
-      <section className="pt-41 max-w-[1200px] bg-[url('/images/pathhero_path.png')] bg-center bg-contain  mx-auto relative">
-        {/* <Image
-          src="/images/pathhero_path.png"
-          alt="hero_bg"
-          fill
-          className=" object-contain absolute top-0 right-0 z-0 "
-        /> */}
-        <h2 className=" font-sans font-semibold text-7xl text-center text-title-gray z-20 ">
-          About us
-        </h2>
-        <p className=" font-body-inter text-subtitle-gray mt-4 text-[1rem] font-light text-center w-[80%] mx-auto">
-          Enovate is an agency that specializes in design and development of
-          websites, web applications and mobile apps. Enovate is an agency that
-          specializes in design and development of websites, web applications
-          and mobile apps. Enovate is an agency that specializes in design and
-          development of websites, web applications and mobile apps. Enovate is
-          an agency that specializes in design and development of websites, web
-          applications and mobile apps.
-        </p>
-        <div className="mt-24">
-          <h2 className="font-sans font-semibold text-5xl text-center text-title-gray  ">
-            We are builders & innovators
+      <section className=" bg-[url('/images/pathhero_path.png')] bg-center bg-contain bg-no-repeat  mx-auto relative">
+        <div className="pt-41 max-w-[1200px] mx-auto">
+          <h2 className=" font-sans font-semibold text-7xl text-center text-title-gray z-20 ">
+            About us
           </h2>
-          <div className=" pt-8 flex gap-x-6 items-center justify-center ">
-            {team.map((member) => {
-              return (
-                <MemberCard
-                  key={member.id}
-                  id={member.id}
-                  name={member.name}
-                  position={member.position}
-                  imgUrl={member.imageUrl}
-                  bio={member.bio}
-                />
-              );
-            })}
+          <p className=" font-body-inter text-subtitle-gray mt-4 text-[1rem] font-light text-center w-[80%] mx-auto">
+            Enovate is an agency that specializes in design and development of
+            websites, web applications and mobile apps. Enovate is an agency
+            that specializes in design and development of websites, web
+            applications and mobile apps. Enovate is an agency that specializes
+            in design and development of websites, web applications and mobile
+            apps. Enovate is an agency that specializes in design and
+            development of websites, web applications and mobile apps.
+          </p>
+          <div className="mt-24">
+            <h2 className="font-sans font-semibold text-5xl text-center text-title-gray  ">
+              We are builders & innovators
+            </h2>
+            <div className=" pt-8 flex gap-x-6 items-center justify-center ">
+              {team.map((member) => {
+                return (
+                  <MemberCard
+                    key={member.id}
+                    id={member.id}
+                    name={member.name}
+                    position={member.position}
+                    imgUrl={member.imageUrl}
+                    bio={member.bio}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -98,8 +94,8 @@ const AboutUs = async () => {
           </h4>
           <CustomButton
             text="Work with us"
-            variant="outline"
-            Icon={<Suitcase />}
+            variant="solid"
+            Icon={<Suitcase color="#fff" />}
           />
         </div>
       </section>
