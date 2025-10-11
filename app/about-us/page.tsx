@@ -11,13 +11,13 @@ const AboutUs = async () => {
   const team = await prisma.teamMember.findMany();
   return (
     <main className=" ">
-      <section className="pt-41 max-w-[1200px]  mx-auto relative">
-        <Image
+      <section className="pt-41 max-w-[1200px] bg-[url('/images/pathhero_path.png')] bg-center bg-contain  mx-auto relative">
+        {/* <Image
           src="/images/pathhero_path.png"
           alt="hero_bg"
           fill
           className=" object-contain absolute top-0 right-0 z-0 "
-        />
+        /> */}
         <h2 className=" font-sans font-semibold text-7xl text-center text-title-gray z-20 ">
           About us
         </h2>
