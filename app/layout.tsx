@@ -25,7 +25,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Enovate Studio",
   description:
-    "An IT agency that help Startups and Entrepreneurs with their product design and development of websites, web-application and mobile application through a one-off or subscription-based plan that fits their budget",
+    "Global digital agency specializing in website design, web app development, and mobile app solutions for startups, entrepreneurs, and growing brands.",
 };
 
 export default function RootLayout({

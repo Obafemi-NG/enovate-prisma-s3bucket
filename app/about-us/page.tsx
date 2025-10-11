@@ -16,14 +16,12 @@ const AboutUs = async () => {
           <h2 className=" font-sans font-semibold text-7xl text-center text-title-gray z-20 ">
             About us
           </h2>
-          <p className=" font-body-inter text-subtitle-gray mt-4 text-[1rem] font-light text-center w-[80%] mx-auto">
-            Enovate is an agency that specializes in design and development of
-            websites, web applications and mobile apps. Enovate is an agency
-            that specializes in design and development of websites, web
-            applications and mobile apps. Enovate is an agency that specializes
-            in design and development of websites, web applications and mobile
-            apps. Enovate is an agency that specializes in design and
-            development of websites, web applications and mobile apps.
+          <p className=" font-body-inter text-subtitle-gray mt-4 text-[1rem] font-light text-center w-[70%] mx-auto">
+            Our team blends creativity with technical expertise to build digital
+            products that are not only visually appealing but also scalable and
+            performance-driven. At Enovate, we believe in innovation,
+            collaboration, and delivering solutions that empower brands to grow
+            and make an impact online.
           </p>
           <div className="mt-24">
             <h2 className="font-sans font-semibold text-5xl text-center text-title-gray  ">

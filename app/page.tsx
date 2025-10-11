@@ -20,9 +20,6 @@ import plus from "../public/icons/plus.svg";
 import minus from "../public/icons/minus.svg";
 import ChatIcon from "@/public/icons/ChatIcon";
 
-import chat from "../public/icons/chat.svg";
-
-import { motion } from "motion/react";
 import { useState } from "react";
 
 import { faq } from "@/data/faq";
@@ -67,10 +64,11 @@ export default function Home() {
           <h2
             className={` font-body-inter text-lg text-subtitle-gray w-[75%] text-center mx-auto mt-8 font-normal  `}
           >
-            Enovate is a <b className="font-bold"> Design-As-A-Service </b>
-            agency that help startups and business owners with their design
-            through a subscription-based plan that fits their budget. We also
-            work on their web and mobile applications.
+            Enovate is a <b className="font-bold">global digital agency </b>{" "}
+            specializing in the design and development of modern websites, web
+            applications, and mobile apps. We help startups, entrepreneurs, and
+            small businesses bring their ideas to life through clean design,
+            robust technology, and user-centered experiences.
           </h2>
           <div className=" mx-auto mt-12 w-fit flex items-center gap-x-8 ">
             <CustomButton
