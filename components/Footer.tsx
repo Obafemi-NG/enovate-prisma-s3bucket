@@ -69,10 +69,10 @@ const Footer = () => {
             className={` font-body-inter font-normal text-title-gray gap-y-2 flex flex-col  `}
           >
             <li className={``}>
-              <Link href="/about">About</Link>
+              <Link href="/about-us">About</Link>
             </li>
             <li className={``}>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact-us">Contact</Link>
             </li>
             <li className={``}>
               <Link href="/blog">Blog</Link>

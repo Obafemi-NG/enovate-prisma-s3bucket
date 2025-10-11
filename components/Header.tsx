@@ -4,13 +4,17 @@ import React, { useState } from "react";
 import { easeInOut, motion } from "motion/react";
 import Image from "next/image";
 import NavIcon from "@/public/icons/nav-icon";
+import NavMenu from "./NavMenu";
 
 const Header = () => {
   const [navHovered, setNavHovered] = useState<boolean>(false);
+  const [showNavMenu, setShowNavMenu] = useState<boolean>(false);
+  const handleExploreToggle = () => {
+    setShowNavMenu(!showNavMenu);
+  };
   return (
     <header>
       <motion.div
-        // key="header"
         initial={{ opacity: 0, y: -100 }}
         animate={{
           opacity: 1,
@@ -45,6 +49,7 @@ const Header = () => {
           <div
             onMouseOver={() => setNavHovered(true)}
             onMouseLeave={() => setNavHovered(false)}
+            onClick={handleExploreToggle}
             className=" flex items-center gap-x-2 hover:cursor-pointer "
           >
             <p className="font-body-inter font-medium hover:text-shadow-2xs">
@@ -59,6 +64,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+        {showNavMenu && <NavMenu />}
       </motion.div>
     </header>
   );
