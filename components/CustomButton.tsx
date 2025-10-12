@@ -27,8 +27,10 @@ const CustomButton = ({ text, Icon, variant }: CustomBtnProps) => {
       <motion.div
         initial={{ display: "none" }}
         exit={{
+          display: "none",
           transition: {
             duration: 0.4,
+            ease: "easeOut",
           },
         }}
         animate={{
@@ -36,7 +38,7 @@ const CustomButton = ({ text, Icon, variant }: CustomBtnProps) => {
           x: buttonHovered ? 0 : -10,
           transition: {
             duration: 0.7,
-            ease: easeInOut,
+            ease: "easeInOut",
           },
         }}
       >

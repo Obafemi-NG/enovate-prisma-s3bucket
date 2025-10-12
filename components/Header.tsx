@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { easeInOut, motion } from "motion/react";
+import { AnimatePresence, easeInOut, motion } from "motion/react";
 import Image from "next/image";
 import NavIcon from "@/public/icons/nav-icon";
 import NavMenu from "./NavMenu";
@@ -11,6 +11,9 @@ const Header = () => {
   const [showNavMenu, setShowNavMenu] = useState<boolean>(false);
   const handleExploreToggle = () => {
     setShowNavMenu(!showNavMenu);
+  };
+  const closeNavMenu = () => {
+    setShowNavMenu(false);
   };
   return (
     <header>
@@ -64,7 +67,10 @@ const Header = () => {
             </div>
           </div>
         </div>
-        {showNavMenu && <NavMenu />}
+        {/* CONDITIONAL DISPLAY OF NAV MENU */}
+        <AnimatePresence>
+          {showNavMenu ? <NavMenu closeMenu={closeNavMenu} /> : null}
+        </AnimatePresence>
       </motion.div>
     </header>
   );
