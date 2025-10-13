@@ -35,9 +35,11 @@ const CustomButton = ({ text, Icon, variant }: CustomBtnProps) => {
         }}
         animate={{
           display: buttonHovered ? "flex" : "none",
+          opacity: [0, 0.4, 1],
           x: buttonHovered ? 0 : -10,
           transition: {
             duration: 0.7,
+            times: [0, 0.6, 1],
             ease: "easeInOut",
           },
         }}
