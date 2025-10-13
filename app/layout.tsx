@@ -3,6 +3,7 @@ import { Geist_Mono, Merriweather_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const merriweatherSans = Merriweather_Sans({
   variable: "--font-merriweather-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body
         className={`${merriweatherSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
+        <Analytics />
         <Header />
         {children}
         <Footer />
