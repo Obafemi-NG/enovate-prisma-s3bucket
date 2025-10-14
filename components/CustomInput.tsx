@@ -34,7 +34,7 @@ const CustomInput = ({
             required={required}
             className={` text-center peer hidden  `}
           />
-          <span className=" peer-checked:bg-enovate-light-purple peer-checked:text-white px-4 py-2 rounded-2xl border border-title-gray peer-checked:border-white hover:cursor-pointer text-nowrap ">
+          <span className=" peer-checked:bg-enovate-light-purple peer-checked:text-white px-4 py-2 rounded-2xl border border-enovate-light-purple peer-checked:border-white hover:cursor-pointer text-nowrap peer-checked:inset-shadow-sm  inset-shadow-enovate-dark-purple peer-checked:drop-shadow-xs peer-checked:drop-shadow-enovate-light-purple ">
             {label}
           </span>
         </label>

@@ -11,7 +11,7 @@ import mail from "../public/icons/mail.svg";
 
 const Footer = () => {
   return (
-    <section className=" bg-light-background mt-28 ">
+    <section className=" bg-light-background mt-28  ">
       <div className="max-w-[1200px] mx-auto py-12 grid grid-cols-[2fr_1fr_1fr_1fr] gap-x-12 ">
         <div className=" ">
           <Link href="/" className={` bg-amber-50 `}>

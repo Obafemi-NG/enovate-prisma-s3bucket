@@ -37,12 +37,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${merriweatherSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+        className={`${merriweatherSans.variable} ${geistMono.variable} ${inter.variable} antialiased min-h-[100vh] flex flex-col `}
       >
         <Analytics />
         <Header />
         {children}
-        <Footer />
+        <section className="mt-auto">
+          <Footer />
+        </section>
       </body>
     </html>
   );

@@ -279,7 +279,7 @@ export default function Home() {
             <CustomButton
               text="Shoot us an email"
               variant="solid"
-              Icon={<MailIcon />}
+              Icon={<MailIcon color="#fff" />}
             />
             {/* <motion.button
             onClick={(e) => {

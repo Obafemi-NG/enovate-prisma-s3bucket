@@ -8,6 +8,7 @@ import {
   workOptions,
 } from "@/data/contactFormData";
 import ArrowRight from "@/public/icons/ArrowRight";
+import MailIcon from "@/public/icons/MailIcon";
 import React, { ChangeEvent, useState } from "react";
 
 const ContactUs = () => {
@@ -21,10 +22,6 @@ const ContactUs = () => {
   const currentCharge = serviceChargeData.find(
     (data) => data.currency === selectedCurrency
   );
-
-  // const handleCurrencyToggle = (currency: 'naira' | 'dollar') => {
-  //   setSelectedCurrency(currency)
-  // }
 
   const handleTextChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -56,10 +53,10 @@ const ContactUs = () => {
           </span>
         </h2>
         <form
-          className=" font-body-inter mt-[5rem] gap-y-6 flex flex-col "
+          className=" font-body-inter mt-[5rem] gap-y-2 flex flex-col "
           action=""
         >
-          <div className=" flex gap-x-4 ">
+          <div className=" flex gap-x-4 py-4">
             <div className=" flex items-baseline gap-x-4   ">
               <p className={` text-2xl font-medium `}>Hi, My name is </p>
               <CustomInput
@@ -83,7 +80,7 @@ const ContactUs = () => {
               />
             </div>
           </div>
-          <div className=" flex items-center gap-x-4 ">
+          <div className=" flex items-center gap-x-4 py-4 ">
             <p className=" text-2xl font-medium ">
               I found Enovate Agency using
             </p>
@@ -102,7 +99,7 @@ const ContactUs = () => {
               );
             })}
           </div>
-          <div className=" flex items-start gap-4 flex-nowrap   ">
+          <div className=" flex items-start gap-4 flex-nowrap  py-4 ">
             <p className={` text-2xl font-medium `}>
               I’m looking for help with
             </p>
@@ -123,7 +120,7 @@ const ContactUs = () => {
               })}
             </div>
           </div>
-          <div className=" flex items-center gap-x-4 ">
+          <div className=" flex items-center gap-x-4 py-4 ">
             <p className={` text-2xl font-medium `}>My budget is around</p>
             <div className="flex items-center p-2 gap-x-1 border rounded-2xl ">
               {serviceChargeData.map((data) => {
@@ -170,7 +167,7 @@ const ContactUs = () => {
               })}
             </div>
           </div>
-          <div className=" flex gap-x-4 ">
+          <div className=" flex gap-x-4 py-4 ">
             <p className={` text-2xl font-medium `}>Kindly contact me at</p>
             <CustomInput
               name="email"
@@ -184,7 +181,7 @@ const ContactUs = () => {
               to start the conversation.
             </p>
           </div>
-          <div className=" flex flex-col gap-y-4 ">
+          <div className=" flex flex-col gap-y-4 py-4 ">
             <p className=" text-title-gray text-2xl font-medium ">
               I will like to share more details about the project{" "}
               <span className=" text-subtitle-gray ">(optional):</span>{" "}
@@ -206,6 +203,19 @@ const ContactUs = () => {
             />
           </div>
         </form>
+      </section>
+      <section className="max-w-[1200px] mx-auto rounded-2xl my-28 bg-enovate-dark-purple py-16 relative ">
+        <div className="bg-[url('/images/pattern_bg.png')] bg-cover  opacity-10 z-0 absolute inset-0 bg-center "></div>
+        <div className=" z-20 relative flex flex-col gap-y-6 items-center ">
+          <h4 className={` font-sans text-5xl text-white font-semibold `}>
+            Do you have more questions?
+          </h4>
+          <CustomButton
+            text="Shoot us an email"
+            variant="outline"
+            Icon={<MailIcon color="#5a5a5a" />}
+          />
+        </div>
       </section>
     </main>
   );
