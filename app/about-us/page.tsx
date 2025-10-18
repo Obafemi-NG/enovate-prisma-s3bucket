@@ -7,8 +7,8 @@ import { howWeWork } from "@/data/howWeWork";
 import CustomButton from "@/components/CustomButton";
 import Suitcase from "@/public/icons/Suitcase";
 
-const AboutUs = async () => {
-  const team = await prisma.teamMember.findMany();
+const AboutUs = () => {
+  // const team = await prisma.teamMember.findMany();
   return (
     <main className=" ">
       <section className=" bg-[url('/images/pathhero_path.png')] bg-center bg-contain bg-no-repeat  mx-auto relative">
@@ -27,7 +27,7 @@ const AboutUs = async () => {
             <h2 className="font-sans font-semibold text-5xl text-center text-title-gray  ">
               We are builders & innovators
             </h2>
-            <div className=" pt-8 flex gap-x-6 items-center justify-center ">
+            {/* <div className=" pt-8 flex gap-x-6 items-center justify-center ">
               {team.map((member) => {
                 return (
                   <MemberCard
@@ -40,7 +40,7 @@ const AboutUs = async () => {
                   />
                 );
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
