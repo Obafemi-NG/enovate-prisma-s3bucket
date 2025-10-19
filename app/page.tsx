@@ -25,19 +25,27 @@ import { useState } from "react";
 import { faq } from "@/data/faq";
 import MailIcon from "@/public/icons/MailIcon";
 import HandShake from "@/public/icons/HandShake";
+import {
+  dehydrate,
+  HydrationBoundary,
+  useSuspenseQuery,
+} from "@tanstack/react-query";
+import { getQueryClient } from "../lib/tanstackQuery/get-query-client";
+import { projectsQuery } from "@/lib/tanstackQuery/queries/projectsQuery";
 
 export default function Home() {
-  // const member = await prisma.teamMember.findMany();
-  // useEffect(() => {
-  //   GET("swiggly.png");
-  // }, []);
-
   const [showAnswer, setShowAnswer] = useState<Record<string, boolean>>({});
   const toggleAnswer = (id: string) => {
     setShowAnswer({
       [id]: !showAnswer[id],
     });
   };
+
+  const queryClient = getQueryClient();
+
+  void queryClient.prefetchQuery(projectsQuery);
+  const { data } = useSuspenseQuery(projectsQuery);
+  console.log(data);
 
   return (
     <main className="  ">
@@ -153,10 +161,25 @@ export default function Home() {
           deliver industry leading solutions.
         </p>
         <div className=" mx-auto grid w-fit gap-x-24 gap-y-28 grid-cols-[1fr_1fr] mt-21 ">
-          <Folder />
-          <Folder />
-          <Folder />
-          <Folder />
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            {/* <Folder />
+            <Folder />
+            <Folder />
+            <Folder /> */}
+            {data.map((project) => {
+              return (
+                <Folder
+                  key={project.id}
+                  id={project.id}
+                  title={project.title}
+                  imageUrl={project.imageUrl}
+                  link={project.link}
+                  detail={project.detail}
+                  tag={project.tag}
+                />
+              );
+            })}
+          </HydrationBoundary>
         </div>
       </section>
       {/* OUR PROCESS OF WORKING SECTION */}

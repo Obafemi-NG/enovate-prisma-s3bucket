@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import Providers from "./providers";
 
 const merriweatherSans = Merriweather_Sans({
   variable: "--font-merriweather-sans",
@@ -39,12 +40,14 @@ export default function RootLayout({
       <body
         className={`${merriweatherSans.variable} ${geistMono.variable} ${inter.variable} antialiased min-h-[100vh] flex flex-col `}
       >
-        <Analytics />
-        <Header />
-        {children}
-        <section className="mt-auto">
-          <Footer />
-        </section>
+        <Providers>
+          <Analytics />
+          <Header />
+          {children}
+          <section className="mt-auto">
+            <Footer />
+          </section>
+        </Providers>
       </body>
     </html>
   );
