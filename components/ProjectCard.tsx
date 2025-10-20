@@ -4,9 +4,10 @@ import Image from "next/image";
 
 interface CardProps {
   folderHovered: boolean;
+  imgUrl: string;
 }
 
-const ProjectCard = ({ folderHovered }: CardProps) => {
+const ProjectCard = ({ folderHovered, imgUrl }: CardProps) => {
   return (
     <motion.div
       initial={{
@@ -27,16 +28,13 @@ const ProjectCard = ({ folderHovered }: CardProps) => {
           duration: 0.8,
         },
       }}
-      className=" w-[95%] mx-auto rounded-lg h-[100%] origin-bottom relative"
+      className=" w-[95%] mx-auto h-[100%] origin-bottom relative  "
     >
       <Image
-        src={`${
-          process.env.AWS_S3_BUCKET_BASE_URL ||
-          process.env.NEXT_PUBLIC_AWS_S3_BUCKET_BASE_URL
-        }astroxtrade.png`}
+        src={imgUrl}
         alt="enovate-path"
         fill
-        className=" object-cover rounded-2xl "
+        className=" object-fill rounded-2xl "
       />
     </motion.div>
   );

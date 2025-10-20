@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { motion } from "motion/react";
+import { Project } from "@/lib/tanstackQuery/queries/projectsQuery";
 
-const Folder = () => {
+const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
   const [folderHovered, setFolderHovered] = useState<boolean>(false);
   return (
     <motion.div
@@ -20,25 +21,25 @@ const Folder = () => {
         {folderHovered && (
           <div className="bg-linear-90 from-enovate-light-blue via-enovate-light-purple to-enovate-light-green mt-8 py-4 px-2.5 ">
             <p className=" font-sans text-title-gray font-semibold text-2xl ">
-              AstroXtrade
+              {title}
             </p>
-            <div className=" flex items-center gap-x-1.5 mt-1.5 ">
-              {["Mobile Dev", "Product Design"].map((data, index) => {
+            {/* <div className=" flex items-center gap-x-1.5 mt-1.5 ">
+              {tag.map((tagName, index) => {
                 return (
                   <p
                     className=" font-mono text-subtitle-gray px-1 py-1 border border-subtitle font-normal text-sm "
                     key={index}
                   >
-                    {data}
+                    {tagName}
                   </p>
                 );
               })}
-            </div>
+            </div> */}
           </div>
         )}
       </div>
       <div className=" w-full h-[90%] bg-enovate-dark-blue rounded-b-lg rounded-t-xl z-10  ">
-        <ProjectCard folderHovered={folderHovered} />
+        <ProjectCard imgUrl={imageUrl} folderHovered={folderHovered} />
       </div>
     </motion.div>
   );

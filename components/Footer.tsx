@@ -147,6 +147,14 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+      <div className="text-center pb-10 flex flex-col items-center justify-center gap-y-4 ">
+        <p className=" font-body-inter font-semibold ">
+          Built with 💡, ☕, and clean code{" "}
+        </p>
+        <p className=" font-body-inter text-sm ">
+          Enovate © {new Date().getFullYear()}
+        </p>
+      </div>
     </section>
   );
 };
