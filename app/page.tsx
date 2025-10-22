@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import prisma from "@/lib/prisma";
 import CustomButton from "@/components/CustomButton";
@@ -16,36 +14,21 @@ import heart from "../public/icons/heart.svg";
 import discuss from "../public/icons/discuss.svg";
 import lineFrame from "../public/icons/line-frame.svg";
 import verticalLineFrame from "../public/icons/step-gradient.svg";
-import plus from "../public/icons/plus.svg";
-import minus from "../public/icons/minus.svg";
-import ChatIcon from "@/public/icons/ChatIcon";
 
-import { useState } from "react";
-
-import { faq } from "@/data/faq";
-import MailIcon from "@/public/icons/MailIcon";
 import HandShake from "@/public/icons/HandShake";
-import {
-  dehydrate,
-  HydrationBoundary,
-  useSuspenseQuery,
-} from "@tanstack/react-query";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { getQueryClient } from "../lib/tanstackQuery/get-query-client";
-import { projectsQuery } from "@/lib/tanstackQuery/queries/projectsQuery";
+import { fetchProjects } from "@/lib/tanstackQuery/queries/projectsQuery";
+import Faq from "@/components/pageSections/Faq";
+import ProjectList from "@/components/pageSections/ProjectList";
 
-export default function Home() {
-  const [showAnswer, setShowAnswer] = useState<Record<string, boolean>>({});
-  const toggleAnswer = (id: string) => {
-    setShowAnswer({
-      [id]: !showAnswer[id],
-    });
-  };
-
+export default async function Home() {
   const queryClient = getQueryClient();
 
-  void queryClient.prefetchQuery(projectsQuery);
-  const { data } = useSuspenseQuery(projectsQuery);
-  console.log(data);
+  await queryClient.prefetchQuery({
+    queryKey: ["projects"],
+    queryFn: fetchProjects,
+  });
 
   return (
     <main className="  ">
@@ -160,27 +143,10 @@ export default function Home() {
           experience aimed at delivering our clients a competitive advantage. We
           deliver industry leading solutions.
         </p>
-        <div className=" mx-auto grid w-fit gap-x-24 gap-y-28 grid-cols-[1fr_1fr] mt-21 ">
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            {/* <Folder />
-            <Folder />
-            <Folder />
-            <Folder /> */}
-            {data.map((project) => {
-              return (
-                <Folder
-                  key={project.id}
-                  id={project.id}
-                  title={project.title}
-                  imageUrl={project.imageUrl}
-                  link={project.link}
-                  detail={project.detail}
-                  tag={project.tag}
-                />
-              );
-            })}
-          </HydrationBoundary>
-        </div>
+        {/* RENDER PROJECT LISTS THAT ARE ALREADY PREFETCHED */}
+        <HydrationBoundary state={dehydrate(queryClient)}>
+          <ProjectList />
+        </HydrationBoundary>
       </section>
       {/* OUR PROCESS OF WORKING SECTION */}
       <section className="max-w-[1200px] mx-auto my-24  ">
@@ -247,89 +213,7 @@ export default function Home() {
         </div>
       </section>
       {/* SECTION FOR FREQUENTLY ASKED QUESTION */}
-      <section className="max-w-[1200px] mx-auto my-28  ">
-        <h4
-          className={` text-title-gray font-sans text-5xl font-[700] leading-snug mx-auto text-center mb-12 `}
-        >
-          Frequently asked questions
-        </h4>
-        <div className={`grid grid-cols-[2fr_1fr] gap-x-28  `}>
-          <div className={``}>
-            {faq.map((item) => {
-              return (
-                <div
-                  key={item.id}
-                  className={` w-[90%] border-b border-b-light-background py-6 `}
-                  onClick={() => toggleAnswer(item.id)}
-                >
-                  <div className={` flex items-center justify-between pb-3.5 `}>
-                    <p className={` font-body-inter font-medium  `}>
-                      {item.question}
-                    </p>
-                    {showAnswer[item.id] ? (
-                      <Image src={minus} alt="minus" />
-                    ) : (
-                      <Image src={plus} alt="plus" />
-                    )}
-                  </div>
-                  <p
-                    className={` font-body-inter font-light w-[90%] text-justify `}
-                  >
-                    {" "}
-                    {showAnswer[item.id] && item.answer}{" "}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-          <div
-            className={` bg-light-background rounded-2xl p-6 flex flex-col items-center place-self-start`}
-          >
-            <div className="py-[0.53rem] px-[0.42rem]  ">
-              <ChatIcon />
-            </div>
-            <h4
-              className={` text-title-gray text-2xl font-medium font-sans text-center mt-4 `}
-            >
-              Do you have any more questions?
-            </h4>
-            <p
-              className={` text-center font-body-inter text-subtitle-gray mt-4 mb-10 `}
-            >
-              Feel free to write us now. We’d be glad to give adequate
-              information in response{" "}
-            </p>
-            <CustomButton
-              text="Shoot us an email"
-              variant="solid"
-              Icon={<MailIcon color="#fff" />}
-            />
-            {/* <motion.button
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = "mailto:HQ@enovate.work";
-            }}
-            onMouseOver={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            animate={{
-              gap: isHovered ? "1rem" : "0.5rem",
-              transition: { duration: 0.7, ease: easeInOut },
-            }}
-            className={``}
-          >
-            <p>Shoot us an email</p>
-            <div className={styles["arrow-right"]}>
-              {" "}
-            <Image
-              className={``}
-              src={mail}
-              alt="arrow-right"
-            />{" "}
-            {/* </div>
-          </motion.button> */}
-          </div>
-        </div>
-      </section>
+      <Faq />
       {/* SECTION FOR SWIGGLY IMAGE */}
       <section className="w-full  h-[20rem] relative">
         <Image
