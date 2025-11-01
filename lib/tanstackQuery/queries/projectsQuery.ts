@@ -1,11 +1,7 @@
 import { QueryClient, queryOptions, useQuery } from "@tanstack/react-query";
 import { getQueryClient } from "../get-query-client";
 
-let baseUrl;
-
-process.env.NODE_ENV === "production" || process.env.NODE_ENV === "test"
-  ? (baseUrl = process.env.BASE_URL)
-  : (baseUrl = "http://localhost:3000");
+const baseUrl = process.env.BASE_URL || "http://localhost:3000";
 
 interface ProjectTag {
   tag: string;

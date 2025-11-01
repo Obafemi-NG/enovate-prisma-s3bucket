@@ -5,9 +5,6 @@ import CheckSubscription from "@/public/icons/CheckSubscription";
 import Calendar from "@/public/icons/Calendar";
 import { expertiseList } from "@/data/expertiseList";
 import ExpertiseCard from "@/components/ExpertiseCard";
-// import { GET } from "./api/images/presigned/route";
-// import { useEffect } from "react";
-import Folder from "@/components/Folder";
 
 import write from "../public/icons/write.svg";
 import heart from "../public/icons/heart.svg";

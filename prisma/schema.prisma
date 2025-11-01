@@ -1,20 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-// generator client {
-//   provider = "prisma-client-js"
-//   output   = "../app/generated/prisma"
-// }
-
-// datasource db {
-//   provider = "postgresql"
-//   url      = env("DATABASE_URL")
-// }
-
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -24,51 +7,50 @@ datasource db {
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
-        
 
 model User {
-  id  Int @id @default(autoincrement())
-  email String
-  password  String
-  role  String  //admin or editor
+  id       Int    @id @default(autoincrement())
+  email    String
+  password String
+  role     String
 }
 
-model TeamMember{
-  id  Int @id @default(autoincrement())
+model TeamMember {
+  id       Int     @id @default(autoincrement())
+  name     String
+  position String
+  imageUrl String
+  bio      String?
+}
+
+model Project {
+  id       Int      @id @default(autoincrement())
+  title    String
+  imageUrl String
+  detail   String
+  link     String
+  tag      String[]
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  email    String
+  password String
+}
+
+model Author {
+  id    Int        @id @default(autoincrement())
   name  String
-  position  String
-  imageUrl  String
-  bio String?
-}
-
-model Project{
-  id  Int @id @default(autoincrement())
-  title  String
-  imageUrl  String
-  detail  String
-  link  String
-  tag String[]
-}
-
-model Admin{
-  id  Int @id @default(autoincrement())
-  email String
-  password  String
-}
-
-model Author{
-  id Int @id @default(autoincrement())
-  name String
   email String?
   posts BlogPost[]
 }
 
-model BlogPost{
-  id Int @id @default(autoincrement())
-  title String
-  authorId Int
-  author Author @relation(fields: [authorId], references: [id])
+model BlogPost {
+  id            Int      @id @default(autoincrement())
+  title         String
+  authorId      Int
   coverImageUrl String
-  content String
+  content       String
   publishedDate DateTime
+  author        Author   @relation(fields: [authorId], references: [id])
 }
