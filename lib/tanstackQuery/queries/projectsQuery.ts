@@ -1,7 +1,10 @@
 import { QueryClient, queryOptions, useQuery } from "@tanstack/react-query";
 import { getQueryClient } from "../get-query-client";
 
-const baseUrl = "http://localhost:3000";
+const fetchUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000/api/project"
+    : "/api/project";
 
 interface ProjectTag {
   tag: string;
@@ -18,9 +21,7 @@ export interface Project {
 
 export const fetchProjects = async (): Promise<Project[]> => {
   console.log(process.env.BASE_URL);
-  const response = await fetch(
-    `${process.env.NODE_ENV === "development" && baseUrl}/api/project`
-  );
+  const response = await fetch(fetchUrl);
   if (!response.ok) throw new Error("Currently unable to fetch projects");
   return response.json();
 };
