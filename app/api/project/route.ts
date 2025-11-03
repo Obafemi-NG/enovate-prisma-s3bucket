@@ -6,6 +6,6 @@ export async function GET() {
     const project = await prisma.project.findMany();
     return NextResponse.json(project);
   } catch (error) {
-    console.log(error);
+    return NextResponse.json({ error });
   }
 }
