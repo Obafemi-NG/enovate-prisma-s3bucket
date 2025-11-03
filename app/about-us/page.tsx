@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 import prisma from "@/lib/prisma";
@@ -7,8 +8,17 @@ import { howWeWork } from "@/data/howWeWork";
 import CustomButton from "@/components/CustomButton";
 import Suitcase from "@/public/icons/Suitcase";
 
-const AboutUs = async () => {
-  const team = await prisma.teamMember.findMany();
+import { fetchTeam } from "@/lib/tanstackQuery/queries/teamMembersQuery";
+import { useQuery } from "@tanstack/react-query";
+
+const AboutUs = () => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["team-members"],
+    queryFn: fetchTeam,
+  });
+
+  // if (isLoading) return <p> Projects is loading... </p>;
+  // if (error) return <p> Error loading projects... </p>;
   return (
     <main className=" ">
       <section className=" bg-[url('/images/pathhero_path.png')] bg-center bg-contain bg-no-repeat  mx-auto relative">
@@ -28,7 +38,9 @@ const AboutUs = async () => {
               We are builders & innovators
             </h2>
             <div className=" pt-8 flex gap-x-6 items-center justify-center ">
-              {team.map((member) => {
+              {isLoading && <p> Team Members details loading... </p>}
+              {error && <p>Error Loading Team Members</p>}
+              {data?.map((member) => {
                 return (
                   <MemberCard
                     key={member.id}
