@@ -34,6 +34,7 @@ const MemberCard = ({ id, imgUrl, name, position, bio }: TeamMemberProps) => {
                 : { backgroundColor: "#f9f9f9" }
             }
             fill
+            sizes="100%"
             className={` object-cover rounded-2xl `}
           />
         </div>

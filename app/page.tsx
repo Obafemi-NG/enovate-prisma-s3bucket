@@ -18,6 +18,7 @@ import { getQueryClient } from "../lib/tanstackQuery/get-query-client";
 import { fetchProjects } from "@/lib/tanstackQuery/queries/projectsQuery";
 import Faq from "@/components/pageSections/Faq";
 import ProjectList from "@/components/pageSections/ProjectList";
+import { fetchTeam } from "@/lib/tanstackQuery/queries/teamMembersQuery";
 
 export default async function Home() {
   const queryClient = getQueryClient();
