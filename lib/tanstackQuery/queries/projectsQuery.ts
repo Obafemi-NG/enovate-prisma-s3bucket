@@ -20,7 +20,7 @@ export interface Project {
 }
 
 export const fetchProjects = async (): Promise<Project[]> => {
-  console.log(process.env.BASE_URL);
+  //   console.log(process.env.BASE_URL);
   const response = await fetch(fetchUrl);
   if (!response.ok) throw new Error("Currently unable to fetch projects");
   return response.json();

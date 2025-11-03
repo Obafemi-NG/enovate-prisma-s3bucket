@@ -1,8 +1,7 @@
+import prisma from "@/lib/prisma";
+import { NextResponse } from "next/server";
+
 export async function GET() {
-  return new Response(JSON.stringify({ name: "Obafemi" }), {
-    status: 200,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  const teamMembers = await prisma.teamMember.findMany();
+  return NextResponse.json(teamMembers);
 }
