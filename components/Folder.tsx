@@ -4,6 +4,8 @@ import ProjectCard from "./ProjectCard";
 import { motion, Variants } from "motion/react";
 import { Project } from "@/lib/tanstackQuery/queries/projectsQuery";
 import Image from "next/image";
+import ArrowTopRight from "@/public/icons/ArrowTopRight";
+import Link from "next/link";
 
 const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
@@ -90,7 +92,8 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
         {(folderHovered || !isDesktop) && (
           <motion.div
             variants={detailsVariants}
-            className="bg-linear-90 from-enovate-light-blue via-enovate-light-purple to-enovate-light-green mt-8 py-4 px-2.5 "
+            // className="bg-linear-90 from-enovate-light-blue via-enovate-light-purple to-enovate-light-green  "
+            className="mt-8 py-4 px-2.5 bg-enovate-dark-purple  "
           >
             <p className=" font-sans text-title-gray font-semibold text-2xl ">
               {title}
@@ -99,7 +102,7 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
               {tag?.map((tagName, index) => {
                 return (
                   <p
-                    className=" font-mono text-subtitle-gray px-1 py-1 border border-subtitle-gray font-normal text-sm "
+                    className=" font-mono text-white px-1 py-1 border border-white font-normal text-xs "
                     key={index}
                   >
                     {tagName}
@@ -107,9 +110,20 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
                 );
               })}
             </div>
-            <p className=" mt-2 font-medium font-body-inter text-sm text-title-gray ">
+            <p className=" mt-5 font-medium font-body-inter text-sm text-white ">
               {detail}
             </p>
+            <div className="flex mt-7 ">
+              <Link
+                href={link}
+                target="_blank"
+                className="font-body-inter ml-auto font-medium flex item-center border-b border-b-transparent hover:border-b-title-gray transition-all duration-500 "
+              >
+                <p>Checkout {title} website</p>
+
+                <ArrowTopRight />
+              </Link>
+            </div>
           </motion.div>
         )}
       </div>
