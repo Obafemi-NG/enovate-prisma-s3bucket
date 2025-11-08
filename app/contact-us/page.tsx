@@ -68,17 +68,6 @@ const ContactUs = () => {
                 required={true}
               />
             </div>
-            {/* <div className=" flex gap-x-4 max-sm:flex-col ">
-              <p className=" text-2xl font-medium ">and I currently work in</p>
-              <CustomInput
-                type="text"
-                placeHolder="Type your company's name"
-                name="companyName"
-                value={formValue.companyName}
-                onChangeHandler={handleTextChange}
-                required={true}
-              />
-            </div> */}
           </div>
           <div className=" flex items-center gap-x-4 py-4 max-sm:flex-col max-sm:items-start ">
             <p className=" text-2xl font-medium ">
