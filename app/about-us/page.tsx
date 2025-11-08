@@ -10,6 +10,7 @@ import Suitcase from "@/public/icons/Suitcase";
 
 import { fetchTeam } from "@/lib/tanstackQuery/queries/teamMembersQuery";
 import { useQuery } from "@tanstack/react-query";
+import { ClipLoader } from "react-spinners";
 
 const AboutUs = () => {
   const { data, error, isLoading } = useQuery({
@@ -17,8 +18,25 @@ const AboutUs = () => {
     queryFn: fetchTeam,
   });
 
-  // if (isLoading) return <p> Projects is loading... </p>;
-  // if (error) return <p> Error loading projects... </p>;
+  if (isLoading)
+    return (
+      <div className=" flex items-center flex-col my-8 gap-y-4 ">
+        <ClipLoader color="#7683ee" size={70} />
+        <h2 className=" font-body-inter text-[1.2rem] text-center font-medium italic ">
+          {" "}
+          Fetching team members details...{" "}
+        </h2>
+      </div>
+    );
+  if (error)
+    return (
+      <div className=" flex items-center flex-col my-8 ">
+        <p className=" font-body-inter text-[1.2rem] text-center font-medium ">
+          {" "}
+          Encountered error while fetching team members.{" "}
+        </p>
+      </div>
+    );
   return (
     <main className=" ">
       <section className=" bg-[url('/images/pathhero_path.png')] bg-center bg-contain bg-no-repeat  mx-auto relative px-2 max-sm:bg-cover ">
@@ -38,8 +56,8 @@ const AboutUs = () => {
               We are builders & innovators
             </h2>
             <div className=" pt-8 flex gap-x-6 items-center justify-center max-sm:flex-col max-sm:gap-y-4 ">
-              {isLoading && <p> Team Members details loading... </p>}
-              {error && <p>Error Loading Team Members</p>}
+              {/* {isLoading && <p> Team Members details loading... </p>}
+              {error && <p>Error Loading Team Members</p>} */}
               {data?.map((member) => {
                 return (
                   <MemberCard
