@@ -45,19 +45,19 @@ const ContactUs = () => {
 
   return (
     <main>
-      <section className="pt-41 max-w-[1200px] mx-auto">
-        <h2 className=" font-sans text-title-gray text-[5rem] font-[700] w-[80%] text-center mx-auto leading-[5rem]  ">
+      <section className="pt-41 max-w-[1200px] mx-auto px-2 max-sm:pt-12 ">
+        <h2 className=" font-sans text-title-gray text-[5rem] font-[700] w-[80%] text-center mx-auto leading-[5rem] max-sm:text-[3.2rem] max-sm:leading-none max-sm:w-full  ">
           Let&rsquo;s make it work{" "}
           <span className="bg-linear-to-tr from-enovate-blue  to-enovate-green bg-clip-text text-transparent">
             together
           </span>
         </h2>
         <form
-          className=" font-body-inter mt-[5rem] gap-y-2 flex flex-col "
+          className=" font-body-inter mt-[5rem] gap-y-2 flex flex-col max-sm:mt-[3rem]"
           action=""
         >
-          <div className=" flex gap-x-4 py-4">
-            <div className=" flex items-baseline gap-x-4   ">
+          <div className=" flex gap-x-4 py-4 max-sm:flex-col max-sm:gap-y-4  ">
+            <div className=" flex items-baseline gap-x-4 max-sm:flex-col  ">
               <p className={` text-2xl font-medium `}>Hi, My name is </p>
               <CustomInput
                 type="text"
@@ -68,7 +68,7 @@ const ContactUs = () => {
                 required={true}
               />
             </div>
-            <div className=" flex gap-x-4 ">
+            {/* <div className=" flex gap-x-4 max-sm:flex-col ">
               <p className=" text-2xl font-medium ">and I currently work in</p>
               <CustomInput
                 type="text"
@@ -78,32 +78,34 @@ const ContactUs = () => {
                 onChangeHandler={handleTextChange}
                 required={true}
               />
-            </div>
+            </div> */}
           </div>
-          <div className=" flex items-center gap-x-4 py-4 ">
+          <div className=" flex items-center gap-x-4 py-4 max-sm:flex-col max-sm:items-start ">
             <p className=" text-2xl font-medium ">
               I found Enovate Agency using
             </p>
-            {foundOptions.map((option) => {
-              return (
-                <div key={option.id}>
-                  <CustomInput
-                    type="radio"
-                    name="gotToKnowEnovate"
-                    value={option.name}
-                    onChangeHandler={handleTextChange}
-                    required={false}
-                    label={option.name}
-                  />
-                </div>
-              );
-            })}
+            <div className=" flex gap-x-2 max-sm:flex-wrap max-sm:gap-y-2 max-sm:gap-x-1 max-sm:mt-2 ">
+              {foundOptions.map((option) => {
+                return (
+                  <div key={option.id}>
+                    <CustomInput
+                      type="radio"
+                      name="gotToKnowEnovate"
+                      value={option.name}
+                      onChangeHandler={handleTextChange}
+                      required={false}
+                      label={option.name}
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className=" flex items-start gap-4 flex-nowrap  py-4 ">
+          <div className=" flex items-start gap-4 flex-nowrap  py-4 max-sm:flex-col max-sm:items-start">
             <p className={` text-2xl font-medium `}>
               I’m looking for help with
             </p>
-            <div className=" flex flex-wrap  gap-2 w-[70%] ">
+            <div className=" flex flex-wrap  gap-2 w-[70%] max-sm:w-full max-sm:gap-x-1 ">
               {workOptions.map((option) => {
                 return (
                   <div key={option.id}>
@@ -120,7 +122,7 @@ const ContactUs = () => {
               })}
             </div>
           </div>
-          <div className=" flex items-center gap-x-4 py-4 ">
+          <div className=" flex items-center gap-x-4 py-4 max-sm:flex-col max-sm:items-start max-sm:gap-y-2 ">
             <p className={` text-2xl font-medium `}>My budget is around</p>
             <div className="flex items-center p-2 gap-x-1 border rounded-2xl ">
               {serviceChargeData.map((data) => {
@@ -149,7 +151,7 @@ const ContactUs = () => {
                 );
               })}
             </div>
-            <div className="flex items-center gap-2 ">
+            <div className="flex items-center gap-2 flex-wrap max-sm:gap-x-1 max-sm:mt-2 ">
               {currentCharge?.charges.map((data) => {
                 return (
                   <div className={``} key={data.id}>
@@ -167,7 +169,7 @@ const ContactUs = () => {
               })}
             </div>
           </div>
-          <div className=" flex gap-x-4 py-4 ">
+          <div className=" flex gap-x-4 py-4 max-sm:flex-col max-sm:gap-y-2 ">
             <p className={` text-2xl font-medium `}>Kindly contact me at</p>
             <CustomInput
               name="email"
@@ -191,7 +193,7 @@ const ContactUs = () => {
               id="moreDetails"
               value={formValue.moreDetails}
               onChange={handleTextChange}
-              className=" resize-none border outline-none p-6 rounded-2xl w-[50%] "
+              className=" resize-none border outline-none p-6 rounded-2xl w-[50%] max-sm:w-full  "
               rows={4}
             ></textarea>
           </div>
@@ -204,10 +206,12 @@ const ContactUs = () => {
           </div>
         </form>
       </section>
-      <section className="max-w-[1200px] mx-auto rounded-2xl my-28 bg-enovate-dark-purple py-16 relative ">
+      <section className="max-w-[1200px] mx-auto rounded-2xl my-28 bg-enovate-dark-purple py-16 relative max-sm:mx-2  ">
         <div className="bg-[url('/images/pattern_bg.png')] bg-cover  opacity-10 z-0 absolute inset-0 bg-center "></div>
         <div className=" z-20 relative flex flex-col gap-y-6 items-center ">
-          <h4 className={` font-sans text-5xl text-white font-semibold `}>
+          <h4
+            className={` font-sans text-5xl text-white font-semibold max-sm:text-4xl max-sm:text-center `}
+          >
             Do you have more questions?
           </h4>
           <CustomButton
