@@ -10,12 +10,13 @@ interface CardProps {
 const ProjectCard = ({ folderHovered, imgUrl }: CardProps) => {
   return (
     <motion.div
+      className=" w-[95%] mx-auto h-[100%] origin-bottom relative responsive-project-card "
       initial={{
         y: 0,
       }}
       animate={{
-        y: folderHovered ? -100 : 0,
-        rotate: folderHovered ? 3 : 0,
+        y: folderHovered ? "var(--animate-card)" : 0,
+        rotate: 1.5,
         transition: {
           duration: 0.8,
           type: "spring",
@@ -28,7 +29,6 @@ const ProjectCard = ({ folderHovered, imgUrl }: CardProps) => {
           duration: 0.8,
         },
       }}
-      className=" w-[95%] mx-auto h-[100%] origin-bottom relative  "
     >
       <Image
         src={imgUrl}

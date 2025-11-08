@@ -13,7 +13,7 @@ const ProjectList = () => {
   if (isLoading) return <p> Projects is loading... </p>;
   if (error) return <p> Error loading projects... </p>;
   return (
-    <section className=" mx-auto grid w-fit gap-x-24 gap-y-28 grid-cols-[1fr_1fr] mt-21  place-content-center ">
+    <section className=" mx-auto lg:grid w-fit gap-x-24 gap-y-28 lg:grid-cols-[1fr_1fr] mt-21 max-sm:mt-[180px] lg:place-content-center max-md:flex max-md:flex-col max-sm:w-full max-sm:gap-y-[230px] ">
       {data?.map((project) => {
         return (
           <Folder

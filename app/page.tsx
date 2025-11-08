@@ -18,7 +18,6 @@ import { getQueryClient } from "../lib/tanstackQuery/get-query-client";
 import { fetchProjects } from "@/lib/tanstackQuery/queries/projectsQuery";
 import Faq from "@/components/pageSections/Faq";
 import ProjectList from "@/components/pageSections/ProjectList";
-import { fetchTeam } from "@/lib/tanstackQuery/queries/teamMembersQuery";
 
 export default async function Home() {
   const queryClient = getQueryClient();
@@ -31,7 +30,7 @@ export default async function Home() {
   return (
     <main className="  ">
       {/* HERO SECTION */}
-      <section className="max-w-[1200px] mx-auto min-h-[100vh] relative   ">
+      <section className="max-w-[1200px] mx-auto min-h-[100vh] relative  px-2 ">
         <Image
           src="/images/pathhero_path.png"
           alt="hero_bg"
@@ -40,7 +39,7 @@ export default async function Home() {
         />
         <div className=" absolute 2xl:translate-y[-70%] translate-y-[-50%] top-[50%]">
           <h1
-            className={` text-[5rem] font-sans font-[700] text-center text-title-gray leading-tight -tracking-wide `}
+            className={` text-[5rem] font-sans font-[700] text-center text-title-gray leading-tight -tracking-wide max-sm:text-[4rem] `}
           >
             We create stunning and
             <span
@@ -51,7 +50,7 @@ export default async function Home() {
             </span>
           </h1>
           <h2
-            className={` font-body-inter text-lg text-subtitle-gray w-[75%] text-center mx-auto mt-8 font-normal  `}
+            className={` font-body-inter text-lg text-subtitle-gray w-[75%] text-center mx-auto mt-8 font-normal max-sm:w-[90%] `}
           >
             Enovate is a <b className="font-bold">global digital agency </b>{" "}
             specializing in the design and development of modern websites, web
@@ -59,7 +58,7 @@ export default async function Home() {
             small businesses bring their ideas to life through clean design,
             robust technology, and user-centered experiences.
           </h2>
-          <div className=" mx-auto mt-12 w-fit flex items-center gap-x-8 ">
+          <div className=" mx-auto mt-12 w-fit flex items-center gap-x-8 max-sm:flex-col max-sm:gap-y-4 ">
             <CustomButton
               text="Check out our subscription"
               variant="solid"
@@ -87,14 +86,14 @@ export default async function Home() {
             </span>
           </h3>
           <p
-            className={` mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray `}
+            className={` mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray max-sm:w-[90%]`}
           >
             We provide a full suite of creative design including illustrations,
             web design and app development services, with special care for
             mobile.
           </p>
         </div>
-        <div className=" grid grid-cols-[1fr_1fr] gap-8 w-fit mx-auto mt-12  ">
+        <div className=" lg:grid lg:grid-cols-[1fr_1fr] lg:gap-8 w-fit mx-auto mt-12 max-md:flex max-md:flex-col max-sm:gap-y-4  ">
           {expertiseList.map((data) => {
             return (
               <ExpertiseCard
@@ -109,7 +108,7 @@ export default async function Home() {
           })}
         </div>
       </section>
-      <section className="w-full  h-[20rem] relative">
+      <section className="w-full max-sm:h-[10rem]  h-[20rem] relative">
         <Image
           src={`${
             process.env.AWS_S3_BUCKET_BASE_URL ||
@@ -117,13 +116,13 @@ export default async function Home() {
           }Subtract.png`}
           alt="enovate-path"
           fill
-          className=" object-cover "
+          className=" object-cover max-sm:object-contain "
         />
       </section>
       {/* PROJECTS SECTION */}
-      <section className="max-w-[1200px] mx-auto my-24  ">
+      <section className="max-w-[1200px] mx-auto my-24 px-2 ">
         <h3
-          className={`text-title-gray font-sans text-5xl font-[700] tracking-tight mx-auto text-center `}
+          className={`text-title-gray font-sans text-5xl font-[700] tracking-tight mx-auto text-center max-sm:text-4xl max-sm:w-[90%] `}
         >
           Projects we are{" "}
           <span
@@ -135,7 +134,7 @@ export default async function Home() {
           of
         </h3>
         <p
-          className={`mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray text-center `}
+          className={`mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray text-center max-sm:w-[90%] `}
         >
           At Enovate, we specialize on high performance immersive digital
           experience aimed at delivering our clients a competitive advantage. We
@@ -147,14 +146,14 @@ export default async function Home() {
         </HydrationBoundary>
       </section>
       {/* OUR PROCESS OF WORKING SECTION */}
-      <section className="max-w-[1200px] mx-auto my-24  ">
+      <section className="max-w-[1200px] mx-auto my-24  px-2 ">
         <h4
-          className={`text-title-gray font-sans text-5xl font-[700] leading-snug mx-auto text-center w-[65%]  `}
+          className={`text-title-gray font-sans text-5xl font-[700] leading-snug mx-auto text-center w-[65%] max-sm:w-full max-sm:text-4xl  `}
         >
           The process of building your next{" "}
           <span className={`text-enovate-dark-green`}>project</span> in 3 steps
         </h4>
-        <div className=" flex items-start justify-between mt-12 ">
+        <div className=" flex items-start justify-between mt-12 max-sm:flex-col ">
           <div className={``}>
             <div className={` flex items-center `}>
               <div className={` bg-enovate-dark-blue w-fit p-2 rounded-lg`}>
@@ -163,7 +162,7 @@ export default async function Home() {
               <Image
                 src={lineFrame}
                 alt="line-frame"
-                className={` w-[70%] mx-auto`}
+                className={` w-[70%] mx-auto max-sm:hidden `}
               />
             </div>
             <p className={`font-body-inter text-[1rem] font-light mt-[1rem]`}>
@@ -173,7 +172,7 @@ export default async function Home() {
             <Image
               src={verticalLineFrame}
               alt="line-frame"
-              className={` min-md:hidden `}
+              className={` min-md:hidden mb-4 `}
             />
           </div>
           <div className={``}>
@@ -185,7 +184,7 @@ export default async function Home() {
               <Image
                 src={lineFrame}
                 alt="line-frame"
-                className={` w-[70%] mx-auto `}
+                className={` w-[70%] mx-auto max-sm:hidden `}
               />
             </div>
             <p className={`font-body-inter text-[1rem] font-light mt-[1rem]`}>
@@ -195,7 +194,7 @@ export default async function Home() {
             <Image
               src={verticalLineFrame}
               alt="line-frame"
-              className={`min-md:hidden`}
+              className={`min-md:hidden mb-4 `}
             />
           </div>
           <div className={``}>
@@ -213,7 +212,7 @@ export default async function Home() {
       {/* SECTION FOR FREQUENTLY ASKED QUESTION */}
       <Faq />
       {/* SECTION FOR SWIGGLY IMAGE */}
-      <section className="w-full  h-[20rem] relative">
+      <section className="w-full max-sm:h-[5rem] h-[20rem] relative">
         <Image
           src={`${
             process.env.AWS_S3_BUCKET_BASE_URL ||
@@ -224,11 +223,11 @@ export default async function Home() {
           className=" object-contain "
         />
       </section>
-      <section className="max-w-[1200px] mx-auto rounded-2xl my-28 bg-light-background py-16 relative ">
+      <section className="max-w-[1200px] mx-auto rounded-2xl my-28 bg-light-background py-16 relative max-sm:mx-2">
         <div className="bg-[url('/images/pattern_bg.png')] bg-cover  opacity-10 z-0 absolute inset-0 bg-center "></div>
         <div className=" z-20 relative flex flex-col gap-y-6 items-center ">
           <h4
-            className={` font-body-inter text-5xl text-title-gray font-semibold `}
+            className={` font-body-inter text-5xl text-title-gray font-semibold max-sm:text-4xl max-sm:text-center `}
           >
             We deliver what you need
           </h4>

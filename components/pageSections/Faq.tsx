@@ -18,19 +18,21 @@ const Faq = () => {
     });
   };
   return (
-    <section className="max-w-[1200px] mx-auto my-28  ">
+    <section className="max-w-[1200px] mx-auto my-28 px-2 ">
       <h4
-        className={` text-title-gray font-sans text-5xl font-[700] leading-snug mx-auto text-center mb-12 `}
+        className={` text-title-gray font-sans text-5xl font-[700] leading-snug mx-auto text-center mb-12 max-sm:text-4xl  `}
       >
         Frequently asked questions
       </h4>
-      <div className={`grid grid-cols-[2fr_1fr] gap-x-28  `}>
+      <div
+        className={`grid grid-cols-[2fr_1fr] gap-x-28 max-sm:flex max-sm:flex-col max-sm:gap-y-9  `}
+      >
         <div className={``}>
           {faq.map((item) => {
             return (
               <div
                 key={item.id}
-                className={` w-[90%] border-b border-b-light-background py-6 `}
+                className={` w-[90%] max-sm:w-full  border-b border-b-light-background py-6 `}
                 onClick={() => toggleAnswer(item.id)}
               >
                 <div className={` flex items-center justify-between pb-3.5 `}>
