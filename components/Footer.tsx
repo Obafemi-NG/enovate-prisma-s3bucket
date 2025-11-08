@@ -11,14 +11,14 @@ import mail from "../public/icons/mail.svg";
 
 const Footer = () => {
   return (
-    <section className=" bg-light-background mt-28  ">
-      <div className="max-w-[1200px] mx-auto py-12 lg:grid lg:grid-cols-[2fr_1fr_1fr_1fr] gap-x-12 max-md:flex max-md:flex-col ">
+    <section className=" bg-light-background mt-28 px-2  ">
+      <div className="max-w-[1200px] mx-auto py-12 lg:grid lg:grid-cols-[2fr_1fr_1fr_1fr] gap-x-12 max-sm:flex max-sm:flex-col max-sm:gap-y-10 max-sm:items-start ">
         <div className=" ">
           <Link href="/" className={` bg-amber-50 `}>
             <Image className={``} src={enovateLogo} alt="enovate_logo" />
           </Link>
           <p
-            className={`font-body-inter font-light text-title-gray mt-2 w-[80%] mb-12 `}
+            className={`font-body-inter font-light text-title-gray mt-2 w-[80%] mb-12 max-sm:mb-6 max-sm:w-[75%] `}
           >
             A modern agency focused on giving our clients the best experience.
           </p>
@@ -31,7 +31,7 @@ const Footer = () => {
             Don&rsquo;t like the form? Reach out to us via email or call
           </p>
           <div
-            className={` mt-6 flex items-center w-fit gap-x-2 border-b border-dashed border-b-light-background hover:border-b-subtitle-gray hover:cursor-pointer  `}
+            className={` mt-6 flex items-center w-fit gap-x-2 border-b border-dashed border-b-light-background hover:border-b-subtitle-gray hover:cursor-pointer max-sm:mt-3 `}
           >
             {" "}
             <div className={``}>
@@ -50,7 +50,9 @@ const Footer = () => {
           </div>
         </div>
         <div className=" ">
-          <p className={` text-title-gray font-sans text-xl font-medium mb-4 `}>
+          <p
+            className={` text-title-gray font-sans text-xl font-medium mb-4 max-sm:mb-2 `}
+          >
             {" "}
             We&rsquo;re Remote!{" "}
           </p>
@@ -62,11 +64,13 @@ const Footer = () => {
           </p>
         </div>
         <div className=" flex flex-col items-center text-center  ">
-          <p className={`text-title-gray font-sans text-xl font-medium mb-4`}>
+          <p
+            className={`text-title-gray font-sans text-xl font-medium mb-4 max-sm:mb-2`}
+          >
             Explore{" "}
           </p>
           <ul
-            className={` font-body-inter font-normal text-title-gray gap-y-2 flex flex-col  `}
+            className={` font-body-inter font-normal text-title-gray gap-y-2 flex flex-col max-sm:text-left `}
           >
             <li className={``}>
               <Link href="/about-us">About</Link>
@@ -88,7 +92,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className="  flex flex-col items-end ">
-          <p className={`text-title-gray font-sans text-xl font-medium mb-4`}>
+          <p
+            className={`text-title-gray font-sans text-xl font-medium mb-4 max-sm:mb-2`}
+          >
             Follow us{" "}
           </p>
           <ul
@@ -147,7 +153,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="text-center pb-10 flex flex-col items-center justify-center gap-y-4 ">
+      <div className="text-center pb-10 flex flex-col items-center justify-center gap-y-4 max-sm:pb-30 ">
         <p className=" font-body-inter font-semibold ">
           Built with 💡, ☕, and clean code{" "}
         </p>

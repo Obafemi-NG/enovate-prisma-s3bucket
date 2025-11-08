@@ -36,10 +36,11 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
   const cardVariants: Variants = {
     offscreen: {
       y: 0,
+      rotate: 0,
     },
     onscreen: {
       y: "var(--animate-card)",
-      rotate: 1.5,
+      rotate: 0,
       transition: {
         duration: 0.8,
         type: "spring",
@@ -73,7 +74,7 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
     <motion.div
       initial={!isDesktop && `offscreen`}
       whileInView={!isDesktop ? `onscreen` : undefined}
-      viewport={{ amount: 0.8 }}
+      viewport={{ amount: 0.9 }}
       variants={folderVariants}
       animate={{
         overflow: folderHovered ? "visible" : "hidden",
@@ -94,18 +95,21 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
             <p className=" font-sans text-title-gray font-semibold text-2xl ">
               {title}
             </p>
-            {/* <div className=" flex items-center gap-x-1.5 mt-1.5 ">
-              {tag.map((tagName, index) => {
+            <div className=" flex items-center gap-x-1.5 mt-1.5 ">
+              {tag?.map((tagName, index) => {
                 return (
                   <p
-                    className=" font-mono text-subtitle-gray px-1 py-1 border border-subtitle font-normal text-sm "
+                    className=" font-mono text-subtitle-gray px-1 py-1 border border-subtitle-gray font-normal text-sm "
                     key={index}
                   >
                     {tagName}
                   </p>
                 );
               })}
-            </div> */}
+            </div>
+            <p className=" mt-2 font-medium font-body-inter text-sm text-title-gray ">
+              {detail}
+            </p>
           </motion.div>
         )}
       </div>
@@ -117,7 +121,7 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
           }}
           animate={{
             y: folderHovered ? "var(--animate-card)" : 0,
-            rotate: 1.5,
+            // rotate: 1.5,
             transition: {
               duration: 0.8,
               type: "spring",

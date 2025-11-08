@@ -17,7 +17,7 @@ const Header = () => {
     setShowNavMenu(false);
   };
   return (
-    <header className=" z-40 lg:max-w-[1200px] mx-auto fixed right-0 left-0 md:top-0 max-md:max-w-[340px] max-sm:bottom-8  ">
+    <header className=" z-40 lg:max-w-[1200px] mx-auto fixed right-0 left-0 md:top-0 max-md:max-w-[340px] max-sm:bottom-4 md:my-4 ">
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{

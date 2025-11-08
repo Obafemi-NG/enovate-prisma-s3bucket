@@ -18,7 +18,6 @@ import { getQueryClient } from "../lib/tanstackQuery/get-query-client";
 import { fetchProjects } from "@/lib/tanstackQuery/queries/projectsQuery";
 import Faq from "@/components/pageSections/Faq";
 import ProjectList from "@/components/pageSections/ProjectList";
-import { fetchTeam } from "@/lib/tanstackQuery/queries/teamMembersQuery";
 
 export default async function Home() {
   const queryClient = getQueryClient();
@@ -31,7 +30,7 @@ export default async function Home() {
   return (
     <main className="  ">
       {/* HERO SECTION */}
-      <section className="max-w-[1200px] mx-auto min-h-[100vh] relative   ">
+      <section className="max-w-[1200px] mx-auto min-h-[100vh] relative  px-2 ">
         <Image
           src="/images/pathhero_path.png"
           alt="hero_bg"
@@ -121,9 +120,9 @@ export default async function Home() {
         />
       </section>
       {/* PROJECTS SECTION */}
-      <section className="max-w-[1200px] mx-auto my-24  ">
+      <section className="max-w-[1200px] mx-auto my-24 px-2 ">
         <h3
-          className={`text-title-gray font-sans text-5xl font-[700] tracking-tight mx-auto text-center `}
+          className={`text-title-gray font-sans text-5xl font-[700] tracking-tight mx-auto text-center max-sm:text-4xl max-sm:w-[90%] `}
         >
           Projects we are{" "}
           <span
@@ -147,14 +146,14 @@ export default async function Home() {
         </HydrationBoundary>
       </section>
       {/* OUR PROCESS OF WORKING SECTION */}
-      <section className="max-w-[1200px] mx-auto my-24  ">
+      <section className="max-w-[1200px] mx-auto my-24  px-2 ">
         <h4
-          className={`text-title-gray font-sans text-5xl font-[700] leading-snug mx-auto text-center w-[65%]  `}
+          className={`text-title-gray font-sans text-5xl font-[700] leading-snug mx-auto text-center w-[65%] max-sm:w-full max-sm:text-4xl  `}
         >
           The process of building your next{" "}
           <span className={`text-enovate-dark-green`}>project</span> in 3 steps
         </h4>
-        <div className=" flex items-start justify-between mt-12 ">
+        <div className=" flex items-start justify-between mt-12 max-sm:flex-col ">
           <div className={``}>
             <div className={` flex items-center `}>
               <div className={` bg-enovate-dark-blue w-fit p-2 rounded-lg`}>
@@ -163,7 +162,7 @@ export default async function Home() {
               <Image
                 src={lineFrame}
                 alt="line-frame"
-                className={` w-[70%] mx-auto`}
+                className={` w-[70%] mx-auto max-sm:hidden `}
               />
             </div>
             <p className={`font-body-inter text-[1rem] font-light mt-[1rem]`}>
@@ -173,7 +172,7 @@ export default async function Home() {
             <Image
               src={verticalLineFrame}
               alt="line-frame"
-              className={` min-md:hidden `}
+              className={` min-md:hidden mb-4 `}
             />
           </div>
           <div className={``}>
@@ -185,7 +184,7 @@ export default async function Home() {
               <Image
                 src={lineFrame}
                 alt="line-frame"
-                className={` w-[70%] mx-auto `}
+                className={` w-[70%] mx-auto max-sm:hidden `}
               />
             </div>
             <p className={`font-body-inter text-[1rem] font-light mt-[1rem]`}>
@@ -195,7 +194,7 @@ export default async function Home() {
             <Image
               src={verticalLineFrame}
               alt="line-frame"
-              className={`min-md:hidden`}
+              className={`min-md:hidden mb-4 `}
             />
           </div>
           <div className={``}>
@@ -213,7 +212,7 @@ export default async function Home() {
       {/* SECTION FOR FREQUENTLY ASKED QUESTION */}
       <Faq />
       {/* SECTION FOR SWIGGLY IMAGE */}
-      <section className="w-full  h-[20rem] relative">
+      <section className="w-full max-sm:h-[5rem] h-[20rem] relative">
         <Image
           src={`${
             process.env.AWS_S3_BUCKET_BASE_URL ||
@@ -224,11 +223,11 @@ export default async function Home() {
           className=" object-contain "
         />
       </section>
-      <section className="max-w-[1200px] mx-auto rounded-2xl my-28 bg-light-background py-16 relative ">
+      <section className="max-w-[1200px] mx-auto rounded-2xl my-28 bg-light-background py-16 relative max-sm:mx-2">
         <div className="bg-[url('/images/pattern_bg.png')] bg-cover  opacity-10 z-0 absolute inset-0 bg-center "></div>
         <div className=" z-20 relative flex flex-col gap-y-6 items-center ">
           <h4
-            className={` font-body-inter text-5xl text-title-gray font-semibold `}
+            className={` font-body-inter text-5xl text-title-gray font-semibold max-sm:text-4xl max-sm:text-center `}
           >
             We deliver what you need
           </h4>

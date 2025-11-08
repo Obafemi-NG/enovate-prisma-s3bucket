@@ -1,6 +1,3 @@
-import { QueryClient, queryOptions, useQuery } from "@tanstack/react-query";
-import { getQueryClient } from "../get-query-client";
-
 const fetchUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000/api/project"
@@ -16,7 +13,7 @@ export interface Project {
   imageUrl: string;
   detail: string;
   link: string;
-  tag: ProjectTag[];
+  tag: string[];
 }
 
 export const fetchProjects = async (): Promise<Project[]> => {
