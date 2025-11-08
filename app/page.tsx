@@ -40,7 +40,7 @@ export default async function Home() {
         />
         <div className=" absolute 2xl:translate-y[-70%] translate-y-[-50%] top-[50%]">
           <h1
-            className={` text-[5rem] font-sans font-[700] text-center text-title-gray leading-tight -tracking-wide `}
+            className={` text-[5rem] font-sans font-[700] text-center text-title-gray leading-tight -tracking-wide max-sm:text-[4rem] `}
           >
             We create stunning and
             <span
@@ -51,7 +51,7 @@ export default async function Home() {
             </span>
           </h1>
           <h2
-            className={` font-body-inter text-lg text-subtitle-gray w-[75%] text-center mx-auto mt-8 font-normal  `}
+            className={` font-body-inter text-lg text-subtitle-gray w-[75%] text-center mx-auto mt-8 font-normal max-sm:w-[90%] `}
           >
             Enovate is a <b className="font-bold">global digital agency </b>{" "}
             specializing in the design and development of modern websites, web
@@ -59,7 +59,7 @@ export default async function Home() {
             small businesses bring their ideas to life through clean design,
             robust technology, and user-centered experiences.
           </h2>
-          <div className=" mx-auto mt-12 w-fit flex items-center gap-x-8 ">
+          <div className=" mx-auto mt-12 w-fit flex items-center gap-x-8 max-sm:flex-col max-sm:gap-y-4 ">
             <CustomButton
               text="Check out our subscription"
               variant="solid"
@@ -87,14 +87,14 @@ export default async function Home() {
             </span>
           </h3>
           <p
-            className={` mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray `}
+            className={` mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray max-sm:w-[90%]`}
           >
             We provide a full suite of creative design including illustrations,
             web design and app development services, with special care for
             mobile.
           </p>
         </div>
-        <div className=" grid grid-cols-[1fr_1fr] gap-8 w-fit mx-auto mt-12  ">
+        <div className=" lg:grid lg:grid-cols-[1fr_1fr] lg:gap-8 w-fit mx-auto mt-12 max-md:flex max-md:flex-col max-sm:gap-y-4  ">
           {expertiseList.map((data) => {
             return (
               <ExpertiseCard
@@ -109,7 +109,7 @@ export default async function Home() {
           })}
         </div>
       </section>
-      <section className="w-full  h-[20rem] relative">
+      <section className="w-full max-sm:h-[10rem]  h-[20rem] relative">
         <Image
           src={`${
             process.env.AWS_S3_BUCKET_BASE_URL ||
@@ -117,7 +117,7 @@ export default async function Home() {
           }Subtract.png`}
           alt="enovate-path"
           fill
-          className=" object-cover "
+          className=" object-cover max-sm:object-contain "
         />
       </section>
       {/* PROJECTS SECTION */}
@@ -135,7 +135,7 @@ export default async function Home() {
           of
         </h3>
         <p
-          className={`mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray text-center `}
+          className={`mt-4 font-normal font-body-inter w-[65%] mx-auto text-subtitle-gray text-center max-sm:w-[90%] `}
         >
           At Enovate, we specialize on high performance immersive digital
           experience aimed at delivering our clients a competitive advantage. We

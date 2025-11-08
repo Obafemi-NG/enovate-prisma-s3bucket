@@ -17,7 +17,7 @@ const Header = () => {
     setShowNavMenu(false);
   };
   return (
-    <header>
+    <header className=" z-40 lg:max-w-[1200px] mx-auto fixed right-0 left-0 md:top-0 max-md:max-w-[340px] max-sm:bottom-8  ">
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{
@@ -30,12 +30,12 @@ const Header = () => {
           y: -100,
           transition: { delay: 0.2, duration: 0.7, ease: easeInOut },
         }}
-        className="rounded-2xl z-40 max-w-[1200px] bg-linear-90 from-enovate-light-blue via-enovate-light-purple to-enovate-light-green p-[2px] my-4 mx-auto fixed right-0 left-0 top-0  "
+        className="rounded-2xl  bg-linear-90 from-enovate-light-blue via-enovate-light-purple to-enovate-light-green p-[2px]   "
       >
         {/* LHS OF HEADER --- WITH LOGO */}
-        <div className=" bg-white flex items-center justify-between py-6 px-6 max-sm:py-4 rounded-2xl ">
-          <Link href="/">
-            <div className="flex flex-col gap-y-1">
+        <div className=" bg-white flex items-center justify-between py-6 px-6 max-sm:py-4 rounded-2xl max-sm:justify-center ">
+          <Link className=" block max-sm:hidden " href="/">
+            <div className="flex flex-col gap-y-1  ">
               <div className="w-32 h-8 relative">
                 <Image
                   src="/icons/LogoDescription.svg"

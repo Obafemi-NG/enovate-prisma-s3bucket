@@ -45,3 +45,30 @@ body {
   /* color: var(--foreground); */
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* variables for for responsive animations on several devices */
+
+/* NAVBAR */
+.responsive-nav-menu {
+  --hidden-y: -50px;
+  --visible-y: 0px;
+}
+
+@media (max-width: 480px) {
+  .responsive-nav-menu {
+    --hidden-y: -100%;
+    --visible-y: -112%;
+  }
+}
+
+/* PROJECT CARDS & FOLDER */
+.responsive-project-card {
+  --animate-card: -100px;
+}
+
+@media (max-width: 480px) {
+  .responsive-project-card {
+    --animate-card: -150px;
+    /* need it to be shown by -250px on mobile */
+  }
+}

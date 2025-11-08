@@ -12,11 +12,15 @@ interface NavMenuProps {
 const NavMenu = ({ closeMenu }: NavMenuProps) => {
   return (
     <motion.div
+      className=" responsive-nav-menu absolute right-0 md:mt-1 md:min-w-[27rem] min-h-[40rem] flex flex-col justify-between md:p-6 p-3 bg-[#FFFFFFB3] border border-enovate-light-blue rounded-2xl backdrop-blur-[20px] -z-10 max-sm:mb-1 max-sm:max-w-[100%] max-sm:left-0"
       key="nav_menu"
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
-      exit={{ opacity: 0, y: -50, transition: { duration: 0.5 } }}
-      className=" absolute right-0 mt-1 min-w-[27rem] min-h-[40rem] flex flex-col justify-between p-6 bg-[#FFFFFFB3] border border-enovate-light-blue rounded-2xl backdrop-blur-[20px] -z-10 "
+      initial={{ opacity: 0, y: "var(--hidden-y)" }}
+      animate={{
+        opacity: 1,
+        y: "var(--visible-y)",
+        transition: { duration: 0.5 },
+      }}
+      exit={{ opacity: 0, y: "var(--hidden-y)", transition: { duration: 0.5 } }}
     >
       <div className=" flex items-center justify-between ">
         <p className=" text-title-gray font-medium font-body-inter text-xl  ">
@@ -35,16 +39,16 @@ const NavMenu = ({ closeMenu }: NavMenuProps) => {
       <ul
         className={` font-body-inter font-medium text-title-gray gap-y-4 flex flex-col text-3xl  `}
       >
-        <li onClick={closeMenu} className={``}>
+        <li onClick={closeMenu} className={` w-fit`}>
           <Link href="/">Home</Link>
         </li>
-        <li onClick={closeMenu} className={``}>
+        <li onClick={closeMenu} className={` w-fit`}>
           <Link href="/about-us">About</Link>
         </li>
-        <li onClick={closeMenu} className={``}>
+        <li onClick={closeMenu} className={` w-fit`}>
           <Link href="/contact-us">Contact</Link>
         </li>
-        <li onClick={closeMenu} className={``}>
+        <li onClick={closeMenu} className={` w-fit`}>
           <Link href="/blog">Blog</Link>
         </li>
       </ul>
