@@ -8,8 +8,12 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 import HandShake from "@/public/icons/HandShake";
 import mail from "../public/icons/mail.svg";
+import { redirect } from "next/navigation";
 
 const Footer = () => {
+  const handleRedirectToContactPage = () => {
+    redirect("/contact-us");
+  };
   return (
     <section className=" bg-light-background mt-28 px-2  ">
       <div className="max-w-[1200px] mx-auto py-12 lg:grid lg:grid-cols-[2fr_1fr_1fr_1fr] gap-x-12 max-sm:flex max-sm:flex-col max-sm:gap-y-10 max-sm:items-start ">
@@ -18,7 +22,7 @@ const Footer = () => {
             <Image className={``} src={enovateLogo} alt="enovate_logo" />
           </Link>
           <p
-            className={`font-body-inter font-light text-title-gray mt-2 w-[80%] mb-12 max-sm:mb-6 max-sm:w-[75%] `}
+            className={`font-body-inter font-light text-title-gray mt-2 w-[80%] mb-12 max-sm:mb-6 max-sm:w-[70%] max-sm:text-sm `}
           >
             A modern agency focused on giving our clients the best experience.
           </p>
@@ -26,12 +30,13 @@ const Footer = () => {
             text="Let&rsquo;s work together"
             variant="solid"
             Icon={<HandShake color="#fff" />}
+            onClickFn={handleRedirectToContactPage}
           />
           <p className={` mt-6 font-body-inter text-sm w-[70%]  `}>
-            Don&rsquo;t like the form? Reach out to us via email or call
+            Don&rsquo;t like the form? Reach out to us via email:
           </p>
           <div
-            className={` mt-6 flex items-center w-fit gap-x-2 border-b border-dashed border-b-light-background hover:border-b-subtitle-gray hover:cursor-pointer max-sm:mt-3 `}
+            className={` mt-6 flex items-center w-fit gap-x-2 border-b border-dashed border-b-light-background hover:border-b-subtitle-gray hover:cursor-pointer max-sm:mt-2 `}
           >
             {" "}
             <div className={``}>

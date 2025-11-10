@@ -17,6 +17,11 @@ const Faq = () => {
       [id]: !showAnswer[id],
     });
   };
+
+  const handleShootEmail = () => {
+    window.location.href = "mailto:hq@enovate.work";
+  };
+
   return (
     <section className="max-w-[1200px] mx-auto my-28 px-2 ">
       <h4
@@ -76,6 +81,7 @@ const Faq = () => {
             text="Shoot us an email"
             variant="solid"
             Icon={<MailIcon color="#fff" />}
+            onClickFn={handleShootEmail}
           />
           {/* <motion.button
             onClick={(e) => {

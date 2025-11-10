@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ProjectCard from "./ProjectCard";
 import { motion, Variants } from "motion/react";
 import { Project } from "@/lib/tanstackQuery/queries/projectsQuery";
 import Image from "next/image";
@@ -31,9 +30,6 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
     if (!isDesktop) return;
     setFolderHovered(false);
   };
-  // const handleOnScreen = () => {
-  //   if (isDesktop) return;
-  // }
 
   const cardVariants: Variants = {
     offscreen: {
@@ -87,12 +83,14 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
       <div
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
-        className=" w-full h-[80%] bg-enovate-blue inset-shadow-sm rounded-t-xl rounded-b-lg absolute bottom-0 right-0 left-0 z-20 content shadow-lg shadow-enovate-light-blue/70 "
+        className={` w-full h-[80%] bg-enovate-blue inset-shadow-sm rounded-t-xl rounded-b-lg absolute bottom-0 right-0 left-0 z-20 content ${
+          folderHovered ? "shadow-lg shadow-enovate-light-blue/70" : null
+        } `}
       >
         {(folderHovered || !isDesktop) && (
           <motion.div
             variants={detailsVariants}
-            // className="bg-linear-90 from-enovate-light-blue via-enovate-light-purple to-enovate-light-green  "
+            // className="bg-linear-90 from-enovate-dark-purple  to-enovate-dark-green mt-8 py-4 px-2.5 "
             className="mt-8 py-4 px-2.5 bg-enovate-dark-purple  "
           >
             <p className=" font-sans text-title-gray font-semibold text-2xl ">
@@ -117,7 +115,7 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
               <Link
                 href={link}
                 target="_blank"
-                className="font-body-inter ml-auto font-medium flex item-center border-b border-b-transparent hover:border-b-title-gray transition-all duration-500 "
+                className="font-body-inter  font-medium flex item-center border-b border-b-transparent hover:border-b-title-gray transition-all duration-500 "
               >
                 <p>Checkout {title} website</p>
 
@@ -129,7 +127,7 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
       </div>
       <div className=" w-full h-[90%] bg-enovate-dark-blue rounded-b-lg rounded-t-xl z-10  ">
         <motion.div
-          className=" w-[95%] mx-auto h-[100%] origin-bottom relative responsive-project-card "
+          className=" w-[95%] mx-auto h-[100%] origin-bottom relative responsive-project-card  "
           initial={{
             y: 0,
           }}
@@ -154,7 +152,8 @@ const Folder = ({ id, title, imageUrl, detail, link, tag }: Project) => {
             src={imageUrl}
             alt="enovate-path"
             fill
-            className=" object-fill rounded-2xl "
+            sizes="100%"
+            className=" w-full h-full rounded-2xl    object-cover md:object-fill  "
           />
         </motion.div>
       </div>

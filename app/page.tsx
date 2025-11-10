@@ -18,6 +18,9 @@ import { getQueryClient } from "../lib/tanstackQuery/get-query-client";
 import { fetchProjects } from "@/lib/tanstackQuery/queries/projectsQuery";
 import Faq from "@/components/pageSections/Faq";
 import ProjectList from "@/components/pageSections/ProjectList";
+import { redirect, RedirectType } from "next/navigation";
+import HeroCta from "@/components/pageSections/HeroCta";
+import PrefooterCta from "@/components/pageSections/PrefooterCta";
 
 export default async function Home() {
   const queryClient = getQueryClient();
@@ -30,7 +33,7 @@ export default async function Home() {
   return (
     <main className="  ">
       {/* HERO SECTION */}
-      <section className="max-w-[1200px] mx-auto min-h-[100vh] relative  px-2 ">
+      <section className="max-w-[1200px] mx-auto min-h-[100vh] relative   ">
         <Image
           src="/images/pathhero_path.png"
           alt="hero_bg"
@@ -39,7 +42,7 @@ export default async function Home() {
         />
         <div className=" absolute 2xl:translate-y[-70%] translate-y-[-50%] top-[50%]">
           <h1
-            className={` text-[5rem] font-sans font-[700] text-center text-title-gray leading-tight -tracking-wide max-sm:text-[4rem] `}
+            className={` text-[5rem] font-sans font-[700] text-center text-title-gray leading-tight -tracking-wide max-sm:text-[3.5rem] px-2 max-sm:pt-4`}
           >
             We create stunning and
             <span
@@ -58,18 +61,7 @@ export default async function Home() {
             small businesses bring their ideas to life through clean design,
             robust technology, and user-centered experiences.
           </h2>
-          <div className=" mx-auto mt-12 w-fit flex items-center gap-x-8 max-sm:flex-col max-sm:gap-y-4 ">
-            <CustomButton
-              text="Check out our subscription"
-              variant="solid"
-              Icon={<CheckSubscription />}
-            />
-            <CustomButton
-              text="Schedule a consultation"
-              variant="outline"
-              Icon={<Calendar />}
-            />
-          </div>
+          <HeroCta />
         </div>
       </section>
       {/* AREAS OF EXPERTISE SECTION */}
@@ -223,21 +215,7 @@ export default async function Home() {
           className=" object-contain "
         />
       </section>
-      <section className="max-w-[1200px] mx-auto rounded-2xl my-28 bg-light-background py-16 relative max-sm:mx-2">
-        <div className="bg-[url('/images/pattern_bg.png')] bg-cover  opacity-10 z-0 absolute inset-0 bg-center "></div>
-        <div className=" z-20 relative flex flex-col gap-y-6 items-center ">
-          <h4
-            className={` font-body-inter text-5xl text-title-gray font-semibold max-sm:text-4xl max-sm:text-center `}
-          >
-            We deliver what you need
-          </h4>
-          <CustomButton
-            text="Let&rsquo;s work together"
-            variant="outline"
-            Icon={<HandShake color="#5A5A5A" />}
-          />
-        </div>
-      </section>
+      <PrefooterCta />
     </main>
   );
 }

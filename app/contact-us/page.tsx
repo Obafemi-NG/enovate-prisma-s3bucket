@@ -43,6 +43,10 @@ const ContactUs = () => {
     moreDetails: "",
   });
 
+  const handleShootEmail = () => {
+    window.location.href = "mailto:hq@enovate.work";
+  };
+
   return (
     <main>
       <section className="pt-41 max-w-[1200px] mx-auto px-2 max-sm:pt-12 ">
@@ -207,6 +211,7 @@ const ContactUs = () => {
             text="Shoot us an email"
             variant="outline"
             Icon={<MailIcon color="#5a5a5a" />}
+            onClickFn={handleShootEmail}
           />
         </div>
       </section>

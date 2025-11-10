@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import Folder from "../Folder";
 import ClipLoader from "react-spinners/ClipLoader";
-import { PulseLoader } from "react-spinners";
 
 const ProjectList = () => {
   const { data, error, isLoading } = useQuery({
