@@ -66,7 +66,7 @@ const NavMenu = ({ closeMenu }: NavMenuProps) => {
             <Link
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.instagram.com/enovate.work/"
+              href="https://www.instagram.com/enovatehq/"
             >
               Instagram
             </Link>{" "}
@@ -76,7 +76,7 @@ const NavMenu = ({ closeMenu }: NavMenuProps) => {
             <Link
               target="_blank"
               rel="noopener noreferrer"
-              href="https://twitter.com/EnovateW"
+              href="https://x.com/EnovateHQ"
             >
               Twitter
             </Link>{" "}
@@ -86,12 +86,12 @@ const NavMenu = ({ closeMenu }: NavMenuProps) => {
             <Link
               target="_blank"
               rel="noopener noreferrer"
-              href="https://www.linkedin.com/in/enovate-51499b265/"
+              href="https://www.linkedin.com/company/enovatehq/"
             >
               LinkedIn
             </Link>{" "}
           </li>
-          <li className={``}>
+          {/* <li className={``}>
             {" "}
             <Link
               target="_blank"
@@ -110,7 +110,7 @@ const NavMenu = ({ closeMenu }: NavMenuProps) => {
             >
               Dribbble
             </Link>{" "}
-          </li>
+          </li> */}
         </ul>
       </div>
     </motion.div>
